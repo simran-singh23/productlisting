@@ -12,8 +12,9 @@ const Footer = () => {
   const links = [
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "Movies", path: "/movies", icon: <FaFilm /> },
-    { name: "TV Shows", path: "/tvshows", icon: <FaTv /> },
-    { name: "Favorites", path: "/favorites", icon: <FaHeart /> },
+
+    { name: "Conditions of Use", path: "/conditionsofuse", icon: <FaTv /> },
+    { name: "Top", path: "/Top", icon: <FaHeart /> },
     { name: "Contact", path: "/contact", icon: <FaEnvelope /> },
   ];
 
@@ -22,9 +23,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex justify-center gap-8 flex-wrap">
         {links.map((link, index) => (
             
-          <motion.div
-            key={index}
-            whileHover={{ y: -8, scale: 1.1 }}
+          <motion.div key={index}whileHover={{ y: -8, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Link
@@ -39,7 +38,7 @@ const Footer = () => {
       </div>
 
       <p className="text-center text-gray-500 mt-6 text-sm">
-        © 2026 MovieHub. All Rights Reserved.
+        © 2026  All Rights Reserved.
       </p>
     </footer>
   );

@@ -1,3 +1,5 @@
+import HeroVideo from "../components/HeroVideo";
+
 import {
   ShoppingBag,
   ArrowRight,
@@ -208,6 +210,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+           <HeroVideo />
     </div>
   );
 }

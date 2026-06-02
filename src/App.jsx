@@ -7,8 +7,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Movies from "./pages/Movies";
-import TvShows from "./pages/TvShows";
-import Favorites from "./pages/Favorites";
+import ConditionsofUse from "./pages/ConditionsofUse";
+import Top from "./pages/Top";
 import Contact from "./pages/Contact";
 
 import Footer from "./components/Footer";
@@ -25,8 +25,8 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/movies" element={<Movies />} />
-            <Route path="/tvshows" element={<TvShows />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/conditionsofuse" element={<ConditionsofUse />} />
+            <Route path="/top" element={<Top />} />
             <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
