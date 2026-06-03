@@ -24,6 +24,7 @@ const Footer = () => {
         {links.map((link, index) => (
             
           <motion.div key={index}whileHover={{ y: -8, scale: 1.1 }}
+
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Link
@@ -31,6 +32,7 @@ const Footer = () => {
               className="flex flex-col items-center text-gray-400 hover:text-red-500 transition"
             >
               <span className="text-2xl">{link.icon}</span>
+              
               <span className="text-sm mt-1">{link.name}</span>
             </Link>
           </motion.div>

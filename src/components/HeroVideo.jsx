@@ -1,17 +1,21 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const HeroVideo = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative h-[500px] w-full overflow-hidden rounded-2xl">
    
       <video
         autoPlay
         loop
+
         muted
         playsInline
+
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/videos/shopping.mp4" type="video/mp4" />
+        <source src="/videos/shopping.mp4"
+         type="video/mp4" />
       </video>
 
     
@@ -19,7 +23,9 @@ const HeroVideo = () => {
 
  
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6">
+
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+
           Discover Amazing Products
         </h1>
 
@@ -29,9 +35,12 @@ const HeroVideo = () => {
           here.
         </p>
 
-        <button className="mt-6 bg-white text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition">
-          Shop Now
-        </button>
+  <button
+  onClick={() => navigate("/products")}
+  className="mt-6 bg-white text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition"
+>
+  Shop Now
+</button>
       </div>
     </section>
   );

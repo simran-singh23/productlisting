@@ -8,6 +8,7 @@ const ProductDetails = () => {
 
   const getSingleProduct = async () => {
     const res = await fetch(`https://dummyjson.com/products/${id}`);
+
     const data = await res.json();
     setProduct(data);
   };
@@ -55,6 +56,7 @@ const ProductDetails = () => {
             </p>
 
             <div className="flex items-center gap-5 mb-8">
+              
               <h2 className="text-6xl font-bold text-lime-700">
                 ${product.price}
               </h2>

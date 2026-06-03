@@ -1,4 +1,5 @@
 import HeroVideo from "../components/HeroVideo";
+import ProductMove from "../components/ProductMove";
 
 import {
   ShoppingBag,
@@ -210,7 +211,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-           <HeroVideo />
+      <HeroVideo />
+      <ProductMove />
     </div>
   );
 }
