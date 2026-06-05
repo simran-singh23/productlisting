@@ -5,22 +5,30 @@ const Top = () => {
   const [products, setProducts] = useState([]);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
+
   const [loading, setLoading] = useState(true);
+
+
   const [error, setError] = useState("");
 
   useEffect(() => {
     const getTopProducts = async () => {
+
+
       try {
         setLoading(true);
+
         setError("");
 
         const res = await fetch("https://dummyjson.com/products?limit=30");
 
         if (!res.ok) {
+        
           throw new Error("Products load nahi ho paaye.");
         }
-
-        const data = await res.json();
+        
+        const data = 
+        await res.json();
         const trendingProducts = data.products
           .sort(
             (a, b) =>
@@ -33,6 +41,7 @@ const Top = () => {
 
         setProducts(trendingProducts);
  setSelectedProduct(trendingProducts[0] || null);
+
       } catch (err) {
         setError(err.message);
       } finally {
@@ -44,6 +53,7 @@ const Top = () => {
   }, []);
 
   const savings = useMemo(() => {
+
     if (!selectedProduct) return 0;
 
     return Math.round(
@@ -60,6 +70,7 @@ const Top = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6">
+
         <h1 className="text-4xl font-bold text-gray-900">Loading top products...</h1>
       </div>
     );
@@ -67,9 +78,13 @@ const Top = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-gray-100
+       flex items-center justify-center px-6">
+
         <div className="bg-white rounded-3xl shadow-xl p-8 text-center max-w-lg">
+
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Something went wrong</h1>
+
           <p className="text-gray-600">{error}</p>
         </div>
       </div>
@@ -85,33 +100,37 @@ const Top = () => {
           <span className="bg-lime-300 text-lime-950 px-5 py-2 rounded-full font-semibold">
             Trending now
           </span>
+
           <h1 className="text-5xl md:text-6xl font-bold text-gray-950 mt-6">
             Top Demand Products
           </h1>
+
           <p className="text-gray-600 text-lg leading-8 mt-5 max-w-2xl">
             High rating, strong discount aur good stock wale products yahan show ho rahe hain.
             Product select karke details check karo aur buy option use karo.
           </p>
+
         </div>
 
         <div className="grid lg:grid-cols-[1fr_420px] gap-8 items-start">
           <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-            {products.map((product) => {
+            {products.map((product) =>
+             {
               const isSelected = selectedProduct?.id === product.id;
 
               return (
-                <button key={product.id} type="button"
-                  onClick={() => setSelectedProduct(product)}
-                  className={`text-left bg-white rounded-3xl overflow-hidden shadow-lg 
+                <button key={product.id} type="button"  onClick={() => setSelectedProduct(product)}
+                  className={`text-left bg-white rounded-3xl overflow-hidden shadow-lg
+
                     border-2 transition duration-300 hover:-translate-y-1 ${
                     isSelected ? "border-lime-500" : "border-transparent"
+                    
                   }`}
                 >
                   <div className="bg-lime-100 p-5">
-                    <img src={product.thumbnail}
-                      alt={product.title}
+                    <img src={product.thumbnail}alt={product.title}
                       className="w-full h-48 object-contain"
-                    />
+                    /> 
                   </div>
 
                   <div className="p-5">
@@ -151,6 +170,7 @@ const Top = () => {
                 <img
                   src={selectedProduct.thumbnail}
 
+
                   alt={selectedProduct.title}
                   className="w-full h-64 object-contain"
                 />
@@ -158,6 +178,7 @@ const Top = () => {
 
 
               <span className="bg-lime-300 text-lime-950 px-4 py-2 rounded-full text-sm font-semibold capitalize">
+
                 {selectedProduct.category}
               </span>
 
@@ -187,8 +208,8 @@ const Top = () => {
 
                   <p className="text-sm text-gray-500">Stock</p>
 
-                  <p className="text-xl font-bold">{selectedProduct.stock}</p>
-
+                  <p className="text-xl font-bold">
+                    {selectedProduct.stock}</p>
                 </div>
               </div>
 

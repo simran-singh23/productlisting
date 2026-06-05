@@ -23,13 +23,18 @@ const navItems = [
     name: "About",
     path: "/about",
   },
+  {
+    name: "Cart",
+    path: "/buying",
+  },
 
 ];
 
 export default function Navbar() {
   return (
     <div className="flex justify-center pt-10 mb-8">
-   <nav className="bg-white rounded-full shadow-lg px-3 py-3 w-[90%] max-w-4xl">
+   <nav className="bg-white rounded-full shadow-lg px-3 py-3
+    w-[90%] max-w-4xl">
 
         <ul className="flex items-center justify-between">
       
@@ -40,6 +45,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-6 py-3 
                 rounded-full font-semibold transition-all duration-300
+
                   
                   ${isActive
                       ? "bg-lime-300 text-black shadow-md"

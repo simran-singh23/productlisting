@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
 
@@ -16,6 +17,21 @@ const ProductDetails = () => {
   useEffect(() => {
     getSingleProduct();
   }, [id]);
+
+  const addToCart = () => {
+    const oldItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const selectedItem = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      thumbnail: product.thumbnail,
+      category: product.category,
+      quantity: 1,
+    };
+
+    localStorage.setItem("cartItems", JSON.stringify([...oldItems, selectedItem]));
+    navigate("/buying");
+  };
 
   if (!product) {
     return (
@@ -93,7 +109,10 @@ const ProductDetails = () => {
 
             <div className="flex gap-5">
 
-              <button className="bg-lime-500 hover:bg-lime-600 text-white px-10 py-4 rounded-2xl text-lg font-semibold transition">
+              <button
+                onClick={addToCart}
+                className="bg-lime-500 hover:bg-lime-600 text-white px-10 py-4 rounded-2xl text-lg font-semibold transition"
+              >
                 Add To Cart
               </button>
 

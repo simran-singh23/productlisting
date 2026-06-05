@@ -1,5 +1,7 @@
 import HeroVideo from "../components/HeroVideo";
 import ProductMove from "../components/ProductMove";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   ShoppingBag,
@@ -7,6 +9,7 @@ import {
   Star,
   Truck,
   ShieldCheck,
+
   Headphones,
 } from "lucide-react";
 
@@ -14,6 +17,7 @@ const products = [
   {
     id: 1,
     title: "Modern Hoodie",
+    
     price: "$89",
     image:
       "https://i.pinimg.com/736x/ce/66/c7/ce66c71137f666d7ccbe8d9d11b22fba.jpg",
@@ -37,6 +41,7 @@ const products = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-100 min-h-screen">
    
@@ -61,14 +66,18 @@ export default function Home() {
             </p>
 
             <div className="flex gap-5 mt-10">
-              <button className="bg-black text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:scale-105 duration-300">
-                Shop Now
-                <ArrowRight size={20} />
-              </button>
-
-              <button className="border-2 border-black px-8 py-4 rounded-full font-semibold hover:bg-black hover:text-white duration-300">
-                Explore
-              </button>
+              <Link to="/dummy">
+                <button className="bg-black text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:scale-105 duration-300">
+                  Shop Now
+                  <ArrowRight size={20} />
+                </button>
+              </Link>
+              <Link to="/explore">
+                <button className="border-2 border-black px-8 py-4 rounded-full font-semibold hover:bg-black hover:text-white duration-300">
+                  Explore
+                </button>
+              </Link>
+              
             </div>
 
 
@@ -87,18 +96,19 @@ export default function Home() {
               <div>
                 <h2 className="text-4xl font-black">4.9</h2>
                 <p className="text-gray-500">Customer Rating</p>
+
               </div>
             </div>
           </div>
 
-
+ 
 
           <div className="relative">
             <div className="absolute -top-8 -left-8 bg-lime-300 w-40 h-40 rounded-full blur-3xl opacity-40"></div>
 
             <img
               src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop"
-              alt=""
+              alt=" error loading"
               className="rounded-[40px] shadow-2xl object-cover h-[700px] w-full"
             />
 
@@ -128,9 +138,12 @@ export default function Home() {
             <h2 className="text-5xl font-black">Trending Collection</h2>
           </div>
 
-          <button className="border-2 border-black px-6 py-3 rounded-full font-semibold hover:bg-black hover:text-white duration-300">
-            View All
-          </button>
+     
+          <Link to="/viewall">
+            <button className="border-2 border-black px-6 py-3 rounded-full font-semibold hover:bg-black hover:text-white duration-300">
+              View All
+            </button>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -140,10 +153,37 @@ export default function Home() {
               className="bg-white rounded-[35px] overflow-hidden shadow-lg hover:-translate-y-2 duration-300"
             >
               <div className="overflow-hidden">
-                <img src={item.image}
-                  alt=""
-                  className="h-[350px] w-full object-cover hover:scale-110 duration-500"
-                />
+                {item.id === 1 ? (
+                  <Link to="/hoodie">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-[350px] w-full object-cover hover:scale-110 duration-500 cursor-pointer"
+                    />
+                  </Link>
+                ) : item.id === 2 ? (
+                  <Link to="/shoe">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-[350px] w-full object-cover hover:scale-110 duration-500 cursor-pointer"
+                    />
+                  </Link>
+                ) : item.id === 3 ? (
+                  <Link to="/jacket">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-[350px] w-full object-cover hover:scale-110 duration-500 cursor-pointer"
+                    />
+                  </Link>
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-[350px] w-full object-cover hover:scale-110 duration-500"
+                  />
+                )}
               </div>
 
               <div className="p-6">

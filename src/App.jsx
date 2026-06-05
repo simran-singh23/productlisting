@@ -12,6 +12,13 @@ import Top from "./pages/Top";
 import Contact from "./pages/Contact";
 
 import Footer from "./components/Footer";
+import Viewall from "./pages/Viewall";
+import Shoe from "./pages/Shoe";
+import Hoodie from "./pages/Hoodie";
+import Jacket from "./pages/Jacket";
+import Buying from "./pages/Buying";
+import Dummy from "./pages/Dummy";
+import Explore from "./pages/Explore";
 export default function App() {
   return (
     <BrowserRouter>
@@ -23,10 +30,18 @@ export default function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/explore" element={<Explore />} />
           <Route path="/about" element={<About />} />
+         
           <Route path="/movies" element={<Movies />} />
             <Route path="/conditionsofuse" element={<ConditionsofUse />} />
-            <Route path="/top" element={<Top />} />
+        <Route path="/top" element={<Top />} />
+            <Route path="/viewall" element={<Viewall />} />
+        <Route path="/shoe" element={<Shoe />} />
+     <Route path="/jacket" element={<Jacket />} />
+    <Route path="/hoodie" element={<Hoodie />} />
+   <Route path="/buying" element={<Buying />} />
+      <Route path="/dummy" element={<Dummy />} />
             <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />

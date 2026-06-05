@@ -4,6 +4,7 @@ const ConditionsofUse = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-8">
+
         <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">
           Conditions of Use
         </h1>
@@ -18,6 +19,7 @@ const ConditionsofUse = () => {
         <p className="text-gray-600 leading-8 mb-4">
           Users are responsible for maintaining the confidentiality of their
           account information and for all activities that occur under their
+
           account. Any misuse of the platform, including unauthorized access,
           fraudulent activity, or violation of applicable laws, may result in
           suspension or termination of access.
@@ -26,6 +28,8 @@ const ConditionsofUse = () => {
         <p className="text-gray-600 leading-8 mb-4">
           We strive to ensure that product information, pricing, and
           availability are accurate. However, errors may occasionally occur,
+
+
           and we reserve the right to correct any inaccuracies or update
           information without prior notice.
         </p>

@@ -1,5 +1,5 @@
-import React from "react";
 
+import React, { useState } from "react";
 const blogs = [
   {
     id: 1,
@@ -31,6 +31,18 @@ const blogs = [
 ];
 
 const Blog = () => {
+  const [email, setEmail] = useState("");
+
+const handleSubscribe = () => {
+  if (!email.trim()) {
+    
+    window.alert("Please enter your email");
+    return;
+  }
+
+  window.alert("✅ Thank you for subscribing!");
+  setEmail("");
+};
   return (
     <div className="min-h-screen bg-lime-300 py-14 px-6">
 
@@ -54,9 +66,9 @@ const Blog = () => {
 
         {blogs.map
         ((blog) => (
-          <div
-            key={blog.id}
-            className="bg-white rounded-[30px] overflow-hidden shadow-2xl hover:-translate-y-3 duration-300"
+          <div key={blog.id}
+            className="bg-white rounded-[30px] overflow-hidden 
+            shadow-2xl hover:-translate-y-3 duration-300"
           >
 
            
@@ -106,13 +118,20 @@ const Blog = () => {
 
         <div className="flex flex-col md:flex-row gap-5 justify-center">
 
-          <input  type="email" placeholder="Enter your email"
-            className="px-6 py-4 rounded-2xl border-2 border-lime-300 
-            outline-none w-full md:w-[400px] text-lg"
-          />
-           <button className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition">
-            Subscribe
-          </button>
+        <input
+  type="email"
+  placeholder="Enter your email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  className="px-6 py-4 rounded-2xl border-2 border-lime-300 
+  outline-none w-full md:w-[400px] text-lg"
+    />
+   <button
+  onClick={handleSubscribe}
+  className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition"
+>
+  Subscribe
+</button>
 
         </div>
       </div>
